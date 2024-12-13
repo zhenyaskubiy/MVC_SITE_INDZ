@@ -7,7 +7,7 @@ namespace MVC_SITE_INDZ.Data
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
-        public DbSet<Task> Tasks { get; set; }
+        public DbSet<ToDoTask> Tasks { get; set; }
 
         public DbSet<User> Users { get; set; }
     }

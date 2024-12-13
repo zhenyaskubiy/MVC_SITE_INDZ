@@ -1,8 +1,8 @@
 using System;
 
-namespace MVC_SITE_INDZ.Task
+namespace MVC_SITE_INDZ.Models
 {
-    public class Task
+    public class ToDoTask
     {
         public string Title { get; set; } 
         public string Description { get; set; } 
