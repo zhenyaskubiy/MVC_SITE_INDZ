@@ -13,14 +13,12 @@ namespace MVC_SITE_INDZ.Controllers
             this.dbContext = dbContext;
         }
 
-        // GET: Add Task
         [HttpGet]
         public IActionResult Add()
         {
             return View();
         }
 
-        // POST: Add Task
         [HttpPost]
         public async Task<IActionResult> Add(AddTaskViewModel viewModel)
         {
@@ -30,8 +28,8 @@ namespace MVC_SITE_INDZ.Controllers
                 {
                     Title = viewModel.Title,
                     Description = viewModel.Description,
-                    Deadline = viewModel.Deadline,  // Використовуємо Deadline з ViewModel
-                    IsCompleted = false,  // За замовчуванням завдання не завершене
+                    Deadline = viewModel.Deadline,
+                    IsCompleted = false,  
                     AddedByUser = viewModel.AddedBy
                 };
 
@@ -44,7 +42,6 @@ namespace MVC_SITE_INDZ.Controllers
             return View(viewModel);
         }
 
-        // GET: Task List
         [HttpGet]
         public async Task<IActionResult> List()
         {
@@ -52,7 +49,6 @@ namespace MVC_SITE_INDZ.Controllers
             return View(tasks);
         }
 
-        // GET: Edit Task
         [HttpGet]
         public async Task<IActionResult> Edit(Guid id)
         {
@@ -62,7 +58,6 @@ namespace MVC_SITE_INDZ.Controllers
                 return NotFound();
             }
 
-            // Створюємо ViewModel для редагування
             var viewModel = new AddTaskViewModel
             {
                 Title = task.Title,
@@ -74,7 +69,6 @@ namespace MVC_SITE_INDZ.Controllers
             return View(viewModel);
         }
 
-        // POST: Edit Task
         [HttpPost]
         public async Task<IActionResult> Edit(AddTaskViewModel viewModel)
         {
@@ -97,7 +91,6 @@ namespace MVC_SITE_INDZ.Controllers
             return View(viewModel);
         }
 
-        // POST: Mark Task as Completed
         [HttpPost]
         public async Task<IActionResult> MarkComplete(Guid id)
         {
