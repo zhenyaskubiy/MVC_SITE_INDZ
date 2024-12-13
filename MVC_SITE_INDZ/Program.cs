@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using MVC_SITE_INDZ.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
