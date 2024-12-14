@@ -22,9 +22,9 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                     </li>
-                    <li class="nav-item">
+                    @* <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                    </li>
+                    </li> *@
                 </ul>
                 @* <ul class="navbar-nav">
                         @if (HttpContext.Session.GetString("Username") != null)
@@ -55,10 +55,21 @@
             @RenderBody()
         </main>
     </div>
-    <h1><a href="/Account/Register">Реєстрація</a></h1>
+    @if (!ViewContext.RouteData.Values["action"].ToString().Equals("Register", StringComparison.OrdinalIgnoreCase))
+    {
+        <h1 class="d-flex justify-content-center">
+            <a href="/Account/Register" class="btn btn-primary btn-lg btn-hover">Зареєструватися</a>
+        </h1>
+    }
+    @if (!ViewContext.RouteData.Values["action"].ToString().Equals("Login", StringComparison.OrdinalIgnoreCase))
+    {
+        <h1 class="d-flex justify-content-center">
+            <a href="/Account/Login" class="btn btn-primary btn-lg btn-hover">Увійти</a>
+        </h1>
+    }
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2024 - MVC_SITE_INDZ - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; Скубій Євгенії, Маренича Федора 2024 - MVC_SITE_INDZ - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

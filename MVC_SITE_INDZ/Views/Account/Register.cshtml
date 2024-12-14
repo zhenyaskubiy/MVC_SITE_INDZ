@@ -1,15 +1,22 @@
 @model MVC_SITE_INDZ.Models.User
 
-<h2>Реєстрація</h2>
 
-<form asp-action="Register" asp-controller="Account" method="post">
-    <div>
-        <label for="Username">Ім'я користувача:</label>
-        <input type="text" id="Username" name="Username" required />
-    </div>
-    <div>
-        <label for="Password">Пароль:</label>
-        <input type="password" id="Password" name="Password" required />
-    </div>
-    <button type="submit">Зареєструватися</button>
-</form>
+<div class="d-flex justify-content-center">
+    <h2>Реєструйся та почни планувати свій день зараз!</h2>
+</div>
+
+<div class="d-flex justify-content-center mt-3">
+    <form asp-action="Register" asp-controller="Account" method="post" class="p-4 border rounded shadow-sm bg-light w-50">
+        <div class="mb-3">
+            <label for="Username" class="form-label">Ім'я користувача:</label>
+            <input type="text" id="Username" name="Username" class="form-control" placeholder="Введіть ім'я користувача" required>
+        </div>
+        <div class="mb-3">
+            <label for="Password" class="form-label">Пароль:</label>
+            <input type="password" id="Password" name="Password" class="form-control" placeholder="Введіть пароль" required>
+        </div>
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary w-30">Зареєструватися</button>
+        </div>
+    </form>
+</div>
