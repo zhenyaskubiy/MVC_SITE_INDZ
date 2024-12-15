@@ -29,7 +29,7 @@ namespace MVC_SITE_INDZ.Controllers
             if (user != null)
             {
                 HttpContext.Session.SetString("Username", user.Username);
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Add", "ToDo");
             }
 
             ViewBag.ErrorMessage = "Невірний логін або пароль.";

@@ -5,10 +5,19 @@ namespace MVC_SITE_INDZ.Data
 {
     public class ApplicationDbContext : DbContext
     {
+        public DbSet<ToDoTask> Tasks { get; set; }
+        public DbSet<User> Users { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
-        public DbSet<ToDoTask> Tasks { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
 
-        public DbSet<User> Users { get; set; }
+            modelBuilder.Entity<ToDoTask>()
+                .HasOne(t => t.User)
+                .WithMany(u => u.Tasks)
+                .HasForeignKey(t => t.UserId)
+                .OnDelete(DeleteBehavior.Cascade);  
+        }
     }
 }
